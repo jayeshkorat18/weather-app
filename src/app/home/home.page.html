@@ -1,0 +1,105 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar color="secondary">
+    <ion-buttons slot="start">
+      <img class="menu-icon" src="/assets/icon/Vectormenu.svg" />
+    </ion-buttons>
+    <ion-title class="title">Weather Forcast</ion-title>
+    <ion-buttons slot="end">&nbsp;</ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar color="secondary">
+      <ion-title size="large">Weather Forcast</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="container">
+    <div class="search-section">
+      <ion-searchbar placeholder="Search your city" [ngModel]="selectedCity?.LocalizedName" class="serch-input" debounce="500" (ionFocus)="onfocusSearch()" (ionChange)="getItems($event)"></ion-searchbar>
+      <ion-list *ngIf="isItemAvailable" class="autocomplete">
+        <ion-item *ngFor="let item of cityList" (click)="setCity(item)">{{ item.LocalizedName }}</ion-item>
+    </ion-list>
+    </div>
+
+    <div class="today-section">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <div class="today">Today</div>
+            <div class="temperature">+{{weatherDetail?.Temperature?.Metric?.Value}}<span>&#8451;</span>
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="days">{{weatherDetail?.LocalObservationDateTime | date: 'EEEE, dd MMMM' }}</div>
+            <div class="cloud">
+              <img src="/assets/images/{{weatherDetail.WeatherIcon}}.png" onerror=" this.src = '/assets/images/7.png'" />
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div class="location"><ion-icon name="location-outline"></ion-icon>{{selectedCity?.LocalizedName}}</div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div class="humidity-presure">
+      <ion-grid class="p-0">
+        <ion-row>
+          <ion-col class="p-0 col-left">
+            <div class="box humidity">
+              <img src="/assets/images/humidity.png" />
+              <div class="heading">
+                {{weatherDetail?.RelativeHumidity}}%
+                <div class="sub-heading">Humidity</div>
+              </div>
+            </div>
+          </ion-col>
+          <ion-col class="p-0 col-right">
+            <div class="box humidity">
+              <img src="/assets/images/pressure.png" />
+              <div class="heading">1010HPa
+                <div class="sub-heading">Presure
+              </div>
+            </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div class="history">
+      <ion-grid class="p-0">
+        <ion-row>
+          <ion-col class="p-0 mr-10">
+            <div class="box days">
+              <div class="heading">
+                <div class="temperature">+30<span>&#8451;</span></div>
+                <div class="sub-heading">Friday</div>
+              </div>
+            </div>
+          </ion-col>
+          <ion-col class="p-0 mr-10">
+            <div class="box days">
+              <div class="heading">
+                <div class="temperature">+30<span>&#8451;</span></div>
+                <div class="sub-heading">Saturday
+              </div>
+            </div>
+            </div>
+          </ion-col>
+          <ion-col class="p-0">
+            <div class="box days">
+              <div class="heading">
+                <div class="temperature">+30<span>&#8451;</span></div>
+                <div class="sub-heading">Sunday
+              </div>
+            </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>

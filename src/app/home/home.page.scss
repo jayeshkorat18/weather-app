@@ -1,0 +1,126 @@
+ion-content{
+  --ion-background-color:#585a7f;
+}
+
+.ion-no-border.header-md::after {
+  /* Removes the toolbar shadow. */
+  background: none;
+}
+.menu-icon{
+  margin-left: 20px;
+}
+.title{
+  font-size: 24px;
+  text-align: center;
+}
+.p-0{
+  padding: 0;
+}
+#container{
+  padding: 25px;
+  .search-section{
+    position: relative;
+    ion-searchbar{
+      padding: 0;
+      --background: #1A1C49;	
+      --color: #FFF;
+      --border-radius: 15px;
+      
+    }
+  }
+  .autocomplete{
+    position: absolute;
+    width: 100%;
+    background: #1a1c49;
+    z-index: 11;
+    box-shadow: 0px 10px 5px -7px;
+    top: 30px;
+    left: 0px;
+    border-radius: 0px 0px 15px 15px;
+    ion-item{
+      --background: #1A1C49;	
+      --color: #FFF;
+    }
+  }
+  .today-section{
+    background: #1A1C49;
+    color: #FFF;
+    margin-top: 18px;
+    border-radius: 15px;
+    ion-grid{
+      padding: 16px 16px 6px 16px;
+    }
+    .today{
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 24px;
+    }
+    .temperature{
+      font-size: 50px;
+      span{
+        font-size: 20px;
+      }
+    }
+    .days{
+      font-size: 12px;
+      text-align: right;
+    }
+    .cloud{
+      text-align: right;
+      margin-top: 6px;
+      img{
+        width: 90px;
+      }
+    }
+    .location{
+      text-align: center;
+      ion-icon{
+        position: relative;
+        top: 2px;
+        right: 5px;
+      }
+    }
+  }
+  .box{
+    background: #1A1C49;
+    color: #FFF;
+    border-radius: 15px;
+  }
+  .humidity-presure{
+    margin-top: 18px;
+    .col-left{
+      padding-right: 9px;
+    }
+    .col-right{
+      padding-left: 9px;
+    }
+    .humidity{
+      display: flex;
+      padding: 20px;
+      img{
+        height: 25px;
+        position: relative;
+        top: 6px;
+      }
+      .heading{
+        font-size: 17px;
+        font-weight: 700;
+        margin-left: 10px;
+      }
+      .sub-heading{
+        font-size: 12px;
+        font-weight: 400;
+      }
+    }
+  }
+  .history{
+    margin-top: 18px;
+    text-align: center;
+    .days{
+      padding: 18px;
+    }
+  }
+}
+.mr-10{
+  margin-right: 10px;
+}
