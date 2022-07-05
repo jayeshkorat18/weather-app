@@ -1,0 +1,22 @@
+<div class="today-section">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="today">Today</div>
+        <div class="temperature">+{{detail?.Temperature?.Metric?.Value}}<span>&#8451;</span>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="days">{{detail?.LocalObservationDateTime | date: 'EEEE, dd MMMM' }}</div>
+        <div class="cloud">
+          <img src="/assets/images/{{detail.WeatherIcon}}.png" onerror=" this.src = '/assets/images/7.png'" />
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="location"><ion-icon name="location-outline"></ion-icon>{{selectedCity?.LocalizedName}}</div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>

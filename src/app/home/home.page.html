@@ -22,29 +22,7 @@
         <ion-item *ngFor="let item of cityList" (click)="setCity(item)">{{ item.LocalizedName }}</ion-item>
     </ion-list>
     </div>
-
-    <div class="today-section">
-      <ion-grid>
-        <ion-row>
-          <ion-col>
-            <div class="today">Today</div>
-            <div class="temperature">+{{weatherDetail?.Temperature?.Metric?.Value}}<span>&#8451;</span>
-            </div>
-          </ion-col>
-          <ion-col>
-            <div class="days">{{weatherDetail?.LocalObservationDateTime | date: 'EEEE, dd MMMM' }}</div>
-            <div class="cloud">
-              <img src="/assets/images/{{weatherDetail.WeatherIcon}}.png" onerror=" this.src = '/assets/images/7.png'" />
-            </div>
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col>
-            <div class="location"><ion-icon name="location-outline"></ion-icon>{{selectedCity?.LocalizedName}}</div>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-    </div>
+    <app-today-weather [detail]="weatherDetail" [selectedCity]="selectedCity"></app-today-weather>
     <div class="humidity-presure">
       <ion-grid class="p-0">
         <ion-row>
