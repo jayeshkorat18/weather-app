@@ -14,6 +14,17 @@ export class HomePage implements OnInit {
   public selectedCity = {};
   public cityList: any = [];
   public weatherDetail = {};
+
+  //Not getting data from API setting static data
+  public jsonData = {
+    humidity: '78',
+    presure: '1020',
+    upcomingData: [
+      { temprature: '30', day: 'Friday'},
+      { temprature: '31', day: 'Saturday'},
+      { temprature: '33', day: 'Sunday'},
+    ]
+  };
   constructor(private service: HomeService, public utils: CommonService, private geolocation: Geolocation) { }
 
   ngOnInit() {

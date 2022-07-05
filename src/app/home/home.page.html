@@ -30,7 +30,7 @@
             <div class="box humidity">
               <img src="/assets/images/humidity.png" />
               <div class="heading">
-                {{weatherDetail?.RelativeHumidity}}%
+                {{jsonData.humidity}}%
                 <div class="sub-heading">Humidity</div>
               </div>
             </div>
@@ -38,7 +38,7 @@
           <ion-col class="p-0 col-right">
             <div class="box humidity">
               <img src="/assets/images/pressure.png" />
-              <div class="heading">1010HPa
+              <div class="heading">{{jsonData.presure}}HPa
                 <div class="sub-heading">Presure
               </div>
             </div>
@@ -53,16 +53,16 @@
           <ion-col class="p-0 mr-10">
             <div class="box days">
               <div class="heading">
-                <div class="temperature">+30<span>&#8451;</span></div>
-                <div class="sub-heading">Friday</div>
+                <div class="temperature">{{jsonData.upcomingData[0].temprature}}<span>&#8451;</span></div>
+                <div class="sub-heading">{{jsonData.upcomingData[0].day}}</div>
               </div>
             </div>
           </ion-col>
           <ion-col class="p-0 mr-10">
             <div class="box days">
               <div class="heading">
-                <div class="temperature">+30<span>&#8451;</span></div>
-                <div class="sub-heading">Saturday
+                <div class="temperature">{{jsonData.upcomingData[1].temprature}}<span>&#8451;</span></div>
+                <div class="sub-heading">{{jsonData.upcomingData[0].day}}
               </div>
             </div>
             </div>
@@ -70,8 +70,8 @@
           <ion-col class="p-0">
             <div class="box days">
               <div class="heading">
-                <div class="temperature">+30<span>&#8451;</span></div>
-                <div class="sub-heading">Sunday
+                <div class="temperature">{{jsonData.upcomingData[2].temprature}}<span>&#8451;</span></div>
+                <div class="sub-heading">{{jsonData.upcomingData[0].day}}
               </div>
             </div>
             </div>
