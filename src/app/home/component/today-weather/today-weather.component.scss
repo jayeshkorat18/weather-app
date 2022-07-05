@@ -1,5 +1,5 @@
 .today-section{
-    background: #1A1C49;
+    background: var(--ion-color-secondary-shade);
     color: #FFF;
     margin-top: 18px;
     border-radius: 15px;
@@ -13,8 +13,13 @@
     }
     .temperature{
       font-size: 50px;
+      position: relative;
       span{
         font-size: 20px;
+        position: absolute;
+        top: 0;
+        color: #FED55B;
+        right: -20px;
       }
     }
     .days{

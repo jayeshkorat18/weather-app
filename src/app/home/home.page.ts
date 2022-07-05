@@ -28,6 +28,7 @@ export class HomePage implements OnInit {
   constructor(private service: HomeService, public utils: CommonService, private geolocation: Geolocation) { }
 
   ngOnInit() {
+    this.utils.showLoading();
     this.geolocation.getCurrentPosition().then((response) => {
       this.getWeatherDetailByLatLong(response.coords.latitude, response.coords.longitude);
      }).catch((error) => {
@@ -79,6 +80,7 @@ export class HomePage implements OnInit {
       if(data && data.length > 0){
         //Set weather detail
         this.weatherDetail = data[0];
+        this.utils.hideLoading();
       }
     }, error => {
       console.log(error.Message);

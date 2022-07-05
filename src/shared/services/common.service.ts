@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Toast } from '@awesome-cordova-plugins/toast/ngx';
+import { LoadingController } from '@ionic/angular';
 
 @Injectable()
 export class CommonService {
-  constructor(public toast: Toast) { }
+  public loading;
+  constructor(public toast: Toast, private loadingCtrl: LoadingController) { }
 
   //Show Toster message
   showToast(message) {
@@ -13,5 +15,16 @@ export class CommonService {
         console.log(toast);
       }, error => console.log(error)
     );
+  }
+
+  async showLoading() {
+    this.loading = await this.loadingCtrl.create({
+      duration: 5000,
+      cssClass: 'custom-loading'
+    });
+    this.loading.present();
+  }
+  async hideLoading() {
+    this.loading.dismiss();
   }
 }
